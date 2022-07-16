@@ -1,13 +1,9 @@
 # Canteen App 
 
-<hr>
+An all in one portal to buy and sell food items from.
 
-## **Name : Naval Surange**
-## **Roll : 2020113018**
 
-<hr>
-
-### **Steps To Run:**
+## **Steps To Run:**
 
 - Firstly change your current directory to backend by
   - `$ cd backend`
