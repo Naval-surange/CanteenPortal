@@ -23,7 +23,7 @@ export class Stats extends Component {
 
   componentDidMount() {
     axios
-      .post("http://localhost:4000/api/order/get_all_food", {
+      .post("/api/order/get_all_food", {
         vendor_id: localStorage.getItem("token"),
       })
       .then((res) => {

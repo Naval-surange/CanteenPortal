@@ -78,7 +78,7 @@ export default function Register() {
       };
     }
 
-    axios.post("http://localhost:4000/api/register", load).then((res) => {
+    axios.post("/api/register", load).then((res) => {
       if (res.status === 200) {
         // alert(res.data.token);
         // localStorage.setItem("token", res.data.token);

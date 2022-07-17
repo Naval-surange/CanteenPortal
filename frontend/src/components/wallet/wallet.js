@@ -23,7 +23,7 @@ export default function Wallet() {
 
   const onChangeTotal = (amount) => {
     axios
-      .post("http://localhost:4000/api/wallet/add", {
+      .post("/api/wallet/add", {
         amount: amount,
         buyer_id: localStorage.getItem("token"),
       })
@@ -36,7 +36,7 @@ export default function Wallet() {
   };
 
   axios
-    .post("http://localhost:4000/api/wallet", load)
+    .post("/api/wallet", load)
     .then((res) => {
       setTotal(res.data["balance"]);
     })

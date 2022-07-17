@@ -53,7 +53,7 @@ class editFood extends React.Component {
       food_id: localStorage.getItem("food_id"),
     };
 
-    axios.post("http://localhost:4000/api/vendor/get_dish", load).then((res) => {
+    axios.post("/api/vendor/get_dish", load).then((res) => {
       let new_chip_data = [];
 
       for (let x in res.data.tags) {
@@ -154,7 +154,7 @@ class editFood extends React.Component {
         console.log(load);
 
         axios
-          .post("http://localhost:4000/api/vendor/update_dish", load)
+          .post("/api/vendor/update_dish", load)
           .then((res, err) => {
             this.setState({ is_open: false });
             this.setState({ details: "" });
@@ -175,7 +175,7 @@ class editFood extends React.Component {
         };
 
         axios
-          .post("http://localhost:4000/api/vendor/delete_dish", load)
+          .post("/api/vendor/delete_dish", load)
           .then((res, err) => {
             alert("Dish Deleted");
             window.location.href = "/dashboard";

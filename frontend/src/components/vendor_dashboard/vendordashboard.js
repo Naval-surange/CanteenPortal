@@ -21,7 +21,7 @@ class VendorDashBoard extends React.Component {
       vendor_id: localStorage.getItem("token"),
     };
 
-    axios.post("http://localhost:4000/api/vendor/get_dishes", load).then((res) => {
+    axios.post("/api/vendor/get_dishes", load).then((res) => {
       let result = [];
       for (let x in res.data) {
         result.push(res.data[x]);

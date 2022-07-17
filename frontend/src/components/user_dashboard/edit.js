@@ -35,7 +35,7 @@ class EditBuyer extends React.Component {
 
   componentDidMount() {
     let load = { buyer_id: localStorage.getItem("token") };
-    axios.post("http://localhost:4000/api/buyer/get_buyer", load).then((res) => {
+    axios.post("/api/buyer/get_buyer", load).then((res) => {
       this.setState({
         BuyerDetails: res.data,
         DataisLoaded: true,
@@ -70,7 +70,7 @@ class EditBuyer extends React.Component {
       console.log(load);
 
       axios
-        .post("http://localhost:4000/api/buyer/update", load)
+        .post("/api/buyer/update", load)
         .then((res, err) => {
           this.setState({ is_open: false });
           this.setState({ details: "" });

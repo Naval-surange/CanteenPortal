@@ -35,7 +35,7 @@ class EditVendor extends React.Component {
 
   componentDidMount() {
     let load = { vendor_id: localStorage.getItem("token") };
-    axios.post("http://localhost:4000/api/vendor/details", load).then((res) => {
+    axios.post("/api/vendor/details", load).then((res) => {
       this.setState({
         BuyerDetails: res.data,
         DataisLoaded: true,
@@ -68,7 +68,7 @@ class EditVendor extends React.Component {
       };
 
       axios
-        .post("http://localhost:4000/api/vendor/update", load)
+        .post("/api/vendor/update", load)
         .then((res, err) => {
           this.setState({ is_open: false });
           this.setState({ details: "" });
