@@ -13,7 +13,7 @@ export default function VendorWallet() {
   };
 
   axios
-    .post("http://localhost:4000/vendor/details", load)
+    .post("http://localhost:4000/api/vendor/details", load)
     .then((res) => {
       setTotal(res.data.balance);
     })

@@ -16,7 +16,7 @@ class UserDashBoard extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:4000/vendor")
+    fetch("http://localhost:4000/api/vendor")
       .then((res) => res.json())
       .then((json) => {
         this.setState({

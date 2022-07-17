@@ -56,7 +56,7 @@ export default function Login() {
 
     // console.log(load);
 
-    axios.post("http://localhost:4000/login", load).then((res) => {
+    axios.post("http://localhost:4000/api/login", load).then((res) => {
       if (res.status === 201) {
         localStorage.setItem("token", res.data.token);
         localStorage.setItem("userType", res.data.userType);

@@ -41,7 +41,7 @@ export class StudentOrders extends Component {
 
   componentDidMount() {
     axios
-      .post("http://localhost:4000/order/my_orders", {
+      .post("http://localhost:4000/api/order/my_orders", {
         user_id: localStorage.getItem("token"),
       })
       .then((res) => {
@@ -55,7 +55,7 @@ export class StudentOrders extends Component {
             food_id: this.state.Orders[i].__foodID,
           };
           results[i] = axios
-            .post("http://localhost:4000/vendor/get_dish", load)
+            .post("http://localhost:4000/api/vendor/get_dish", load)
             .then((res) => {
               this.state.FoodDetails.push(res.data);
             });

@@ -121,7 +121,7 @@ export default function AddFood() {
       };
 
       axios
-        .post("http://localhost:4000/vendor/addDish", load)
+        .post("http://localhost:4000/api/vendor/addDish", load)
         .then((res) => {
           if (res.status === 201) {
             alert("Dish Added");

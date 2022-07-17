@@ -44,19 +44,19 @@ export default class Buy extends Component {
       food_id: localStorage.getItem("foodId"),
     };
 
-    axios.post("http://localhost:4000/vendor/get_dish", load).then((res) => {
+    axios.post("http://localhost:4000/api/vendor/get_dish", load).then((res) => {
       let v_id = res.data.__vendorID;
 
       let vDetails = [];
       axios
-        .post("http://localhost:4000/vendor/details", { vendor_id: v_id })
+        .post("http://localhost:4000/api/vendor/details", { vendor_id: v_id })
         .then((res) => {
           vDetails = res.data;
           this.setState({ VendorDetails: vDetails });
         });
 
       axios
-        .post("http://localhost:4000/buyer/get_buyer", {
+        .post("http://localhost:4000/api/buyer/get_buyer", {
           buyer_id: localStorage.getItem("token"),
         })
         .then((res) => {
@@ -121,16 +121,17 @@ export default class Buy extends Component {
 
 
     const handelBuy = () => {
+      
       let load = {
         food_id: localStorage.getItem("foodId"),
         buyer_id: localStorage.getItem("token"),
         quantity: this.state.quantity,
       };
-      axios.post("http://localhost:4000/order", load).then((res) => {
+      axios.post("http://localhost:4000/api/order", load).then((res) => {
         if (res.status === 200) {
           alert("Order Placed Successfully");
         } else {
-          alert(res.json.msg);
+          alert(res.json.error);
         }
       });
     };
@@ -140,7 +141,7 @@ export default class Buy extends Component {
         food_id: localStorage.getItem("foodId"),
         buyer_id: localStorage.getItem("token"),
       };
-      axios.post("http://localhost:4000/buyer/unfav", load).then((res) => {
+      axios.post("http://localhost:4000/api/buyer/unfav", load).then((res) => {
         if (res.status === 200) {
           this.setState({ isFav: false });
         } else {
@@ -155,7 +156,7 @@ export default class Buy extends Component {
         food_id: localStorage.getItem("foodId"),
       };
 
-      axios.post("http://localhost:4000/buyer/make_fav", load).then((res) => {
+      axios.post("http://localhost:4000/api/buyer/make_fav", load).then((res) => {
         if (res.status === 200) {
           this.setState({ isFav: true });
         } else {

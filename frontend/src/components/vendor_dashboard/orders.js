@@ -6,7 +6,7 @@ import { Paper, Grid, Button } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
 let updateOrder = (orderID) => {
-  axios.post("http://localhost:4000/order/update", {
+  axios.post("http://localhost:4000/api/order/update", {
     order_id: orderID,
   });
   window.location.reload();
@@ -77,7 +77,7 @@ export class Orders extends Component {
 
   componentDidMount() {
     axios
-      .post("http://localhost:4000/order/get", {
+      .post("http://localhost:4000/api/order/get", {
         vendor_id: localStorage.getItem("token"),
       })
       .then((res) => {
@@ -91,7 +91,7 @@ export class Orders extends Component {
             food_id: this.state.Orders[i].__foodID,
           };
           results[i] = axios
-            .post("http://localhost:4000/vendor/get_dish", load)
+            .post("http://localhost:4000/api/vendor/get_dish", load)
             .then((res) => {
               this.state.FoodDetails.push(res.data);
             });

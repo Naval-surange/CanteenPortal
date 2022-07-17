@@ -20,7 +20,7 @@ class Favs extends React.Component {
       buyer_id: localStorage.getItem("token"),
     };
 
-    axios.post("http://localhost:4000/buyer/getfavs", load).then((res) => {
+    axios.post("http://localhost:4000/api/buyer/getfavs", load).then((res) => {
       let result = [];
       for (let x in res.data) {
         result.push(res.data[x]);
