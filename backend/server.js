@@ -15,7 +15,10 @@ var walletRouter = require("./routes/wallet");
 var infoRouter = require("./routes/info");
 var orderRouter = require("./routes/order");
 
-app.use(cors());
+app.use(cors({ 
+  origin: "https://iiit-canteen.herokuapp.com/", 
+  credentials: true 
+ }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
